@@ -1,15 +1,4 @@
 <?php
-<<<<<<< HEAD
-$page_title = 'Privacy Policy - SkillSeek';
-include 'includes/header.php';
-?>
-
-<div class="container" style="padding: 40px 0; min-height: 60vh;">
-    <h1>Privacy Policy</h1>
-    <p>Coming soon...</p>
-</div>
-
-=======
 // ============================================
 // SkillSeek - Privacy Policy
 // ============================================
@@ -41,5 +30,4 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 <?php include 'includes/footer.php'; ?>

@@ -1,6 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
 // ============================================
 // SkillSeek - Payments
 // File: employer/payments.php
@@ -50,17 +48,10 @@ $stmt = $pdo->prepare("
 $stmt->execute([$user_id]);
 $payments = $stmt->fetchAll();
 
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 $page_title = 'Payments - SkillSeek';
 include '../includes/header.php';
 ?>
 
-<<<<<<< HEAD
-<div class="container" style="padding: 60px 0; min-height: 60vh;">
-    <h1>Payments</h1>
-    <p>Manage your payment history and transactions.</p>
-    <p style="color: #94A3B8;">Coming soon...</p>
-=======
 <!-- ============================================================
      PAGE CONTENT
      ============================================================ -->
@@ -145,7 +136,6 @@ include '../includes/header.php';
         <?php endif; ?>
 
     </main>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 </div>
 
 <?php include '../includes/footer.php'; ?>

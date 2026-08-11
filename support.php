@@ -1,16 +1,4 @@
 <?php
-<<<<<<< HEAD
-$page_title = 'Help Center - SkillSeek';
-include 'includes/header.php';
-?>
-
-<div class="container" style="padding: 40px 0; min-height: 60vh;">
-    <h1>Help Center</h1>
-    <p>How can we help you?</p>
-    <p>Coming soon...</p>
-</div>
-
-=======
 // ============================================
 // SkillSeek - Support
 // ============================================
@@ -117,5 +105,4 @@ document.querySelectorAll('details').forEach(function(d) {
     });
 });
 </script>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 <?php include 'includes/footer.php'; ?>
