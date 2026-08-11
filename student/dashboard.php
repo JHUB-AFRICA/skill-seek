@@ -123,7 +123,7 @@ include '../includes/header.php';
         <li><a href="my_applications.php"><i class="fas fa-file-alt"></i> My Applications</a></li>
         <li><a href="saved_jobs.php"><i class="fas fa-bookmark"></i> Saved Jobs</a></li>
         <li><a href="profile.php"><i class="fas fa-user-edit"></i> My Profile</a></li>
-        <li><a href="payments.php"><i class="fas fa-credit-card"></i> Payments</a></li>
+        <li><a href="linked_employers.php"><i class="fas fa-link"></i> Linked Employers</a></li>
         <li><a href="/SkillSeek/auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
