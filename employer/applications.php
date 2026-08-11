@@ -361,7 +361,7 @@ include '../includes/header.php';
                         <div class="application-body">
                             <div class="job-info">
                                 <strong><i class="fas fa-briefcase"></i> Applied for:</strong>
-                                <a href="job_details.php?id=<?php echo $app['job_id']; ?>">
+                                <a href="../job_details.php?id=<?php echo $app['job_id']; ?>">
                                     <?php echo htmlspecialchars($app['job_title']); ?>
                                 </a>
                             </div>

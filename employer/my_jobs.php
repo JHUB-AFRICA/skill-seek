@@ -251,7 +251,7 @@ include '../includes/header.php';
                         <div class="job-card-header">
                             <div class="job-title-section">
                                 <h3>
-                                    <a href="job_details.php?id=<?php echo $job['id']; ?>">
+                                    <a href="../job_details.php?id=<?php echo $job['id']; ?>">
                                         <?php echo htmlspecialchars($job['title']); ?>
                                     </a>
                                 </h3>

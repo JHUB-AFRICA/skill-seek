@@ -2,6 +2,7 @@
 // ============================================
 // SkillSeek - Find Talent
 // File: employer/talent.php
+<<<<<<< HEAD
 // Description: Employers can browse and search for students
 // ============================================
 
@@ -9,11 +10,21 @@
 require_once '../config/database.php';
 
 // Check if user is logged in
+=======
+// Description: Browse available students/freelancers
+// ============================================
+
+require_once '../config/database.php';
+
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 if (!isLoggedIn()) {
     redirect('../auth/login.php');
 }
 
+<<<<<<< HEAD
 // Check if user is an employer
+=======
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 if (getUserRole() !== 'employer') {
     redirect('../student/dashboard.php');
 }
@@ -22,6 +33,7 @@ $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['full_name'];
 
 // ============================================
+<<<<<<< HEAD
 // GET FILTER PARAMETERS
 // ============================================
 $search = $_GET['search'] ?? '';
@@ -52,15 +64,37 @@ $sql = "
     FROM users u
     JOIN student_profiles sp ON u.id = sp.user_id
     WHERE u.role = 'student'
+=======
+// GET FILTERS
+// ============================================
+$search = $_GET['search'] ?? '';
+$skill_filter = $_GET['skill'] ?? '';
+
+// ============================================
+// GET TALENT
+// ============================================
+$sql = "
+    SELECT u.id, u.full_name, u.email, u.phone, u.location, u.bio, u.profile_pic,
+           sp.skills, sp.education, sp.experience, sp.hourly_rate, sp.rating, sp.total_jobs_completed
+    FROM student_profiles sp
+    JOIN users u ON u.id = sp.user_id
+    WHERE sp.is_available = 1
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 ";
 
 $params = [];
 
 if (!empty($search)) {
+<<<<<<< HEAD
     $sql .= " AND (u.full_name LIKE ? OR u.location LIKE ?)";
     $search_term = "%$search%";
     $params[] = $search_term;
     $params[] = $search_term;
+=======
+    $sql .= " AND (u.full_name LIKE ? OR u.location LIKE ? OR sp.skills LIKE ?)";
+    $term = "%$search%";
+    $params[] = $term; $params[] = $term; $params[] = $term;
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 }
 
 if (!empty($skill_filter)) {
@@ -68,6 +102,7 @@ if (!empty($skill_filter)) {
     $params[] = "%$skill_filter%";
 }
 
+<<<<<<< HEAD
 if ($availability === 'available') {
     $sql .= " AND sp.is_available = 1";
 } elseif ($availability === 'unavailable') {
@@ -84,6 +119,15 @@ $students = $stmt->fetchAll();
 $page_title = 'Find Talent - SkillSeek';
 
 // Include header
+=======
+$sql .= " ORDER BY sp.rating DESC, sp.total_jobs_completed DESC LIMIT 60";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$talent = $stmt->fetchAll();
+
+$page_title = 'Find Talent - SkillSeek';
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 include '../includes/header.php';
 ?>
 
@@ -91,6 +135,7 @@ include '../includes/header.php';
      PAGE CONTENT
      ============================================================ -->
 <div class="dashboard-container">
+<<<<<<< HEAD
     
     <!-- Sidebar -->
     <aside class="dashboard-sidebar">
@@ -102,6 +147,15 @@ include '../includes/header.php';
             <span class="role-badge employer">Employer</span>
         </div>
         
+=======
+
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-profile">
+            <div class="profile-avatar"><i class="fas fa-building"></i></div>
+            <h3><?php echo htmlspecialchars($user_name); ?></h3>
+            <span class="role-badge employer">Employer</span>
+        </div>
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
         <nav class="sidebar-nav">
             <ul>
                 <li><a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
@@ -115,6 +169,7 @@ include '../includes/header.php';
             </ul>
         </nav>
     </aside>
+<<<<<<< HEAD
     
     <!-- Main Content -->
     <main class="dashboard-main">
@@ -258,11 +313,85 @@ include '../includes/header.php';
                                     </a>
                                 <?php endif; ?>
                             </div>
+=======
+
+    <main class="dashboard-main">
+
+        <div class="page-header">
+            <div class="header-left">
+                <h1>Find Talent</h1>
+                <p>Browse available students and freelancers</p>
+            </div>
+            <div class="header-right">
+                <span class="result-count"><?php echo count($talent); ?> available</span>
+            </div>
+        </div>
+
+        <div class="filter-bar" style="margin-bottom:24px;">
+            <form method="GET" style="display:flex;gap:12px;flex-wrap:wrap;width:100%;">
+                <div class="search-box" style="flex:1;min-width:220px;">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="search" placeholder="Search by name, location, or skill..." value="<?php echo htmlspecialchars($search); ?>">
+                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                    <?php if (!empty($search) || !empty($skill_filter)): ?>
+                        <a href="talent.php" class="btn btn-secondary btn-sm">Clear</a>
+                    <?php endif; ?>
+                </div>
+            </form>
+        </div>
+
+        <?php if (empty($talent)): ?>
+            <div class="empty-state">
+                <i class="fas fa-user-graduate"></i>
+                <h3>No talent found</h3>
+                <p>No available freelancers match your search. Try different keywords.</p>
+                <a href="talent.php" class="btn btn-secondary">Clear Filters</a>
+            </div>
+        <?php else: ?>
+            <div class="talent-grid">
+                <?php foreach ($talent as $t): ?>
+                    <?php
+                        $initials = '';
+                        foreach (preg_split('/\s+/', trim($t['full_name'])) as $part) {
+                            if (isset($part[0])) { $initials .= strtoupper($part[0]); }
+                        }
+                        $skills = array_slice(array_filter(array_map('trim', explode(',', $t['skills'] ?? ''))), 0, 4);
+                    ?>
+                    <div class="talent-card">
+                        <div class="talent-head">
+                            <div class="talent-avatar"><?php echo $initials !== '' ? $initials : '<i class="fas fa-user"></i>'; ?></div>
+                            <div>
+                                <h3><?php echo htmlspecialchars($t['full_name']); ?></h3>
+                                <p><i class="fas fa-location-dot"></i> <?php echo htmlspecialchars($t['location'] ?? 'Remote'); ?></p>
+                            </div>
+                            <span class="talent-rate">$<?php echo number_format((float)$t['hourly_rate'], 0); ?>/hr</span>
+                        </div>
+                        <div class="talent-rating">
+                            <?php for ($s = 1; $s <= 5; $s++): ?>
+                                <i class="fas fa-star <?php echo $s <= round((float)$t['rating']) ? 'filled' : ''; ?>"></i>
+                            <?php endfor; ?>
+                            <span><?php echo number_format((float)$t['rating'], 1); ?></span>
+                            <span class="talent-jobs"><?php echo (int)$t['total_jobs_completed']; ?> jobs done</span>
+                        </div>
+                        <?php if (!empty($t['bio'])): ?>
+                            <p class="talent-bio"><?php echo htmlspecialchars(substr($t['bio'] ?? '', 0, 120)); ?><?php echo isset($t['bio']) && strlen($t['bio']) > 120 ? '...' : ''; ?></p>
+                        <?php endif; ?>
+                        <?php if (!empty($skills)): ?>
+                            <div class="talent-skills">
+                                <?php foreach ($skills as $skill): ?>
+                                    <span><?php echo htmlspecialchars($skill); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="talent-foot">
+                            <a href="../api/chat.php?user=<?php echo (int)$t['id']; ?>" class="btn btn-primary btn-sm"><i class="fas fa-comment"></i> Contact</a>
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
+<<<<<<< HEAD
         
     </main>
 </div>
@@ -438,3 +567,10 @@ include '../includes/header.php';
 </style>
 
 <?php include '../includes/footer.php'; ?>
+=======
+
+    </main>
+</div>
+
+<?php include '../includes/footer.php'; ?>
+>>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1

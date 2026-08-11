@@ -94,7 +94,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'send_message') {
         ");
         $notification_title = 'New Message';
         $notification_message = $user_name . ' sent you a message';
-        $notification_link = '/SkillSeek/api/chat.php?user=' . $user_id;
+        $notification_link = '/api/chat.php?user=' . $user_id;
         $stmt->execute([$receiver_id, $notification_title, $notification_message, $notification_link]);
         
         echo json_encode([

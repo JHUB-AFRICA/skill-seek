@@ -127,7 +127,7 @@ include '../includes/header.php';
                         <div class="job-card-header">
                             <div class="job-title-section">
                                 <h3>
-                                    <a href="job_details.php?id=<?php echo $job['id']; ?>">
+                                    <a href="../job_details.php?id=<?php echo $job['id']; ?>">
                                         <?php echo htmlspecialchars($job['title']); ?>
                                     </a>
                                 </h3>
@@ -177,7 +177,7 @@ include '../includes/header.php';
                                     </span>
                                 <?php endif; ?>
                                 
-                                <a href="job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm">
+                                <a href="../job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                                 

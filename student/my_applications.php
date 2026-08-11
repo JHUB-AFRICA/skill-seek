@@ -97,6 +97,11 @@ $rejected_apps = $stmt->fetch()['total'];
 // HANDLE APPLICATION ACTIONS
 // ============================================
 $action_message = '';
+// Surface flash error from apply.php redirects
+if (isset($_SESSION['error'])) {
+    $action_message = '<div class="alert alert-error"><i class="fas fa-exclamation-circle"></i> ' . htmlspecialchars($_SESSION['error']) . '</div>';
+    unset($_SESSION['error']);
+}
 
 // Withdraw application
 if (isset($_GET['withdraw']) && is_numeric($_GET['withdraw'])) {
@@ -258,7 +263,7 @@ include '../includes/header.php';
                                 <h4><?php echo htmlspecialchars($app['job_title']); ?></h4>
                                 <div class="employer-info">
                                     <i class="fas fa-building"></i>
-                                    <a href="../employer/profile.php?id=<?php echo $app['employer_id']; ?>">
+                                    <a href="../api/chat.php?user=<?php echo $app['employer_id']; ?>&job=<?php echo $app['job_id']; ?>">
                                         <?php echo htmlspecialchars($app['employer_name']); ?>
                                     </a>
                                 </div>

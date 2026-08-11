@@ -132,13 +132,14 @@ $page_title = 'Register - SkillSeek';
     <title><?php echo $page_title; ?></title>
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/SkillSeek/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body class="auth-page">
 
@@ -150,10 +151,10 @@ $page_title = 'Register - SkillSeek';
         
         <!-- Logo -->
         <div class="auth-header">
-            <a href="/SkillSeek/index.php" style="text-decoration: none;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
-                    <span style="font-size: 32px;">🚀</span>
-                    <span style="font-size: 28px; font-weight: 800; color: #0F172A;">Skill<span style="color: #4F46E5;">Seek</span></span>
+            <a href="/index.php" style="text-decoration: none;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">
+                    <img src="/assets/images/logo.jpeg" alt="SkillSeek Logo" style="height: 40px; width: auto; border-radius: 10px;">
+                    <span style="font-size: 28px; font-weight: 800; color: #0F172A; letter-spacing: -0.5px;">Skill<span style="color: #2563EB;">Seek</span></span>
                 </div>
             </a>
             <p>Create your account to get started</p>
@@ -285,6 +286,6 @@ $page_title = 'Register - SkillSeek';
     });
 </script>
 
-<script src="/SkillSeek/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

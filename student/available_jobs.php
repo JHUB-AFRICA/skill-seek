@@ -25,6 +25,11 @@ $user_name = $_SESSION['full_name'];
 // HANDLE SAVE/UNSAVE JOB
 // ============================================
 $action_message = '';
+// Surface flash error from apply.php redirects
+if (isset($_SESSION['error'])) {
+    $action_message = '<div class="alert alert-error"><i class="fas fa-exclamation-circle"></i> ' . htmlspecialchars($_SESSION['error']) . '</div>';
+    unset($_SESSION['error']);
+}
 if (isset($_GET['action']) && isset($_GET['id']) && is_numeric($_GET['id'])) {
     $job_id = $_GET['id'];
     $action = $_GET['action'];
@@ -286,7 +291,7 @@ include '../includes/header.php';
                         <div class="job-card-header">
                             <div class="job-title-section">
                                 <h3>
-                                    <a href="job_details.php?id=<?php echo $job['id']; ?>">
+                                    <a href="../job_details.php?id=<?php echo $job['id']; ?>">
                                         <?php echo htmlspecialchars($job['title']); ?>
                                     </a>
                                 </h3>
@@ -333,7 +338,7 @@ include '../includes/header.php';
                                     </a>
                                 <?php endif; ?>
                                 
-                                <a href="job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm">
+                                <a href="../job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm">
                                     <i class="fas fa-eye"></i> View Details
                                 </a>
                                 

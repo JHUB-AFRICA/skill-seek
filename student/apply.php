@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ");
             $notification_title = 'New Application Received';
             $notification_message = $user_name . ' has applied for ' . $job['title'];
-            $notification_link = '/SkillSeek/employer/applications.php?job_id=' . $job_id;
+            $notification_link = '/employer/applications.php?job_id=' . $job_id;
             $stmt->execute([
                 $job['employer_id'],
                 $notification_title,
