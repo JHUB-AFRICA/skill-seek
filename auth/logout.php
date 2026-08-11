@@ -1,8 +1,6 @@
 <?php
 // ============================================
 // SkillSeek - Logout Handler
-// File: auth/logout.php
-// Description: Destroy session and logout user
 // ============================================
 
 // Start session
@@ -11,7 +9,7 @@ session_start();
 // Destroy all session data
 $_SESSION = array();
 
-// If session cookie exists, delete it
+// Delete session cookie
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(

@@ -132,6 +132,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
             
             $success = 'Application submitted successfully! 🎉';
+
+// Send email notification
+include '../includes/email_templates.php';
+sendApplicationNotification($pdo->lastInsertId());
             
         } catch(PDOException $e) {
             $error = 'Error submitting application: ' . $e->getMessage();

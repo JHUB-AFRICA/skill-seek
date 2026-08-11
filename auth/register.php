@@ -1,11 +1,8 @@
 <?php
 // ============================================
 // SkillSeek - Registration Page
-// File: auth/register.php
-// Description: User registration page
 // ============================================
 
-// Include configuration
 require_once '../config/database.php';
 
 // If already logged in, redirect to dashboard
@@ -179,9 +176,9 @@ $page_title = 'Register - SkillSeek';
             </div>
         <?php endif; ?>
         
-        <!-- Registration Form - FIXED: Removed data-validate -->
+        <!-- Registration Form -->
         <?php if (!$success): ?>
-        <form method="POST" action="" class="auth-form">
+        <form method="POST" class="auth-form">
             
             <!-- Full Name -->
             <div class="form-group">
