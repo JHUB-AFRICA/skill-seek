@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Admin Login - SkillSeek</title>
-    <link rel="stylesheet" href="/SkillSeek/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body class="auth-page">
 <div class="auth-container">
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
         <div class="auth-footer">
-            <a href="/SkillSeek/index.php">← Back to Home</a>
+            <a href="../index.php">← Back to Home</a>
         </div>
     </div>
 </div>
