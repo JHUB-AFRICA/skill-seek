@@ -214,7 +214,7 @@ include '../includes/header.php';
                                     <a href="apply.php?id=<?php echo $job['id']; ?>" class="btn btn-primary btn-sm">
                                         <i class="fas fa-paper-plane"></i> Apply Now
                                     </a>
-                                    <a href="job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm">
+                                    <a href="../job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm">
                                         <i class="fas fa-eye"></i> View
                                     </a>
                                 </div>
