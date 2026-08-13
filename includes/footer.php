@@ -1,17 +1,12 @@
 <?php
 // ============================================
-<<<<<<< HEAD
-// SkillSeek - Footer
-// ============================================
-
-=======
 // SkillSeek - Footer (Premium Redesign)
 // ============================================
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 $base_path = $base_path ?? '';
 $assets = $base_path . 'assets/';
 ?>
     </main>
+    <!-- End Main Content -->
 
     <!-- ============================================================
          FOOTER
@@ -20,19 +15,6 @@ $assets = $base_path . 'assets/';
         <div class="container-wide">
 
             <div class="footer-grid">
-<<<<<<< HEAD
-                
-                <!-- Brand Column -->
-                <div class="footer-column">
-                   <div class="footer-logo">
-    <img src="/SkillSeek/assets/images/logo.jpeg" alt="SkillSeek" style="height: 35px; width: auto; display: block;">
-    <span style="font-weight: 900; font-size: 1.4rem; color: #FFFFFF; margin-left: 8px;">Skill<span style="color: #818CF8;">Seek</span></span>
-</div>
-                    <p class="footer-description">
-                        Connecting employers with talented students. 
-                        Find the perfect match for your projects.
-                    </p>
-=======
 
                 <!-- Brand / Logo -->
                 <div class="footer-col footer-brand">
@@ -53,36 +35,12 @@ $assets = $base_path . 'assets/';
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
                 </div>
 
                 <!-- Company -->
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-<<<<<<< HEAD
-                        <li><a href="/SkillSeek/employer/dashboard.php">Dashboard</a></li>
-                        <li><a href="/SkillSeek/employer/post_job.php">Post a Job</a></li>
-                        <li><a href="/SkillSeek/employer/my_jobs.php">Manage Jobs</a></li>
-                        <li><a href="/SkillSeek/employer/applications.php">View Applications</a></li>
-                        <li><a href="/SkillSeek/employer/talent.php">Find Talent</a></li>
-                        <li><a href="/SkillSeek/employer/payments.php">Payments</a></li>
-                    </ul>
-                </div>
-                
-                <!-- For Students -->
-                <div class="footer-column">
-                    <h4>For Students</h4>
-                    <ul>
-                        <li><a href="/SkillSeek/student/dashboard.php">Dashboard</a></li>
-                        <li><a href="/SkillSeek/student/available_jobs.php">Find Jobs</a></li>
-                        <li><a href="/SkillSeek/student/my_applications.php">My Applications</a></li>
-                        <li><a href="/SkillSeek/student/saved_jobs.php">Saved Jobs</a></li>
-                        <li><a href="/SkillSeek/student/profile.php">Update Profile</a></li>
-                    </ul>
-                </div>
-                
-=======
                         <li><a href="<?php echo $base_path; ?>/index.php"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="<?php echo $base_path; ?>/jobs.php"><i class="fas fa-chevron-right"></i> Jobs</a></li>
                         <li><a href="<?php echo $base_path; ?>/index.php#categories"><i class="fas fa-chevron-right"></i> Categories</a></li>
@@ -91,23 +49,14 @@ $assets = $base_path . 'assets/';
                     </ul>
                 </div>
 
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
                 <!-- Support -->
                 <div class="footer-col">
                     <h4>Support</h4>
                     <ul>
-<<<<<<< HEAD
-                        <li><a href="/SkillSeek/support.php">Help Center</a></li>
-                        <li><a href="/SkillSeek/contact.php">Contact Us</a></li>
-                        <li><a href="/SkillSeek/faq.php">FAQ</a></li>
-                        <li><a href="/SkillSeek/terms.php">Terms &amp; Conditions</a></li>
-                        <li><a href="/SkillSeek/privacy.php">Privacy Policy</a></li>
-=======
                         <li><a href="<?php echo $base_path; ?>/support.php"><i class="fas fa-chevron-right"></i> Support</a></li>
                         <li><a href="<?php echo $base_path; ?>/faq.php"><i class="fas fa-chevron-right"></i> FAQ</a></li>
                         <li><a href="<?php echo $base_path; ?>/contact.php"><i class="fas fa-chevron-right"></i> Contact</a></li>
                         <li><a href="<?php echo $base_path; ?>/support.php"><i class="fas fa-chevron-right"></i> Help Center</a></li>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
                     </ul>
                 </div>
 
@@ -136,19 +85,6 @@ $assets = $base_path . 'assets/';
         </div>
     </footer>
 
-<<<<<<< HEAD
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Toast Container -->
-    <div id="toastContainer"></div>
-
-    <!-- Main JavaScript -->
-    <script src="/SkillSeek/assets/js/main.js"></script>
-    
-=======
     <!-- ============================================================
          BACK TO TOP
          ============================================================ -->
@@ -164,21 +100,10 @@ $assets = $base_path . 'assets/';
     <!-- ============================================================
          GLOBAL JAVASCRIPT
          ============================================================ -->
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
     <script>
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-<<<<<<< HEAD
-        
-        window.addEventListener('scroll', function() {
-            const button = document.getElementById('backToTop');
-            if (button) {
-                button.style.display = window.scrollY > 300 ? 'flex' : 'none';
-            }
-        });
-=======
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
     </script>
     <script src="<?php echo $base_path; ?>assets/js/main.js"></script>
 

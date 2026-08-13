@@ -1,19 +1,11 @@
 <?php
 // ============================================
-<<<<<<< HEAD
-// SkillSeek - Landing Page
-=======
 // SkillSeek - Landing Page (Premium Redesign)
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 // ============================================
 
 require_once 'config/database.php';
 
-<<<<<<< HEAD
-// Get stats
-=======
 // Homepage statistics
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 $stmt = $pdo->query("SELECT COUNT(*) as total FROM jobs WHERE status = 'open'");
 $open_jobs = $stmt->fetch()['total'];
 
@@ -23,11 +15,7 @@ $total_students = $stmt->fetch()['total'];
 $stmt = $pdo->query("SELECT COUNT(*) as total FROM users WHERE role = 'employer'");
 $total_employers = $stmt->fetch()['total'];
 
-<<<<<<< HEAD
-// Get featured jobs
-=======
 // Featured jobs (latest 6 open jobs)
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 $stmt = $pdo->prepare("
     SELECT j.*, u.full_name as employer_name, c.name as category_name
     FROM jobs j
@@ -40,19 +28,6 @@ $stmt = $pdo->prepare("
 $stmt->execute();
 $featured_jobs = $stmt->fetchAll();
 
-<<<<<<< HEAD
-$page_title = 'SkillSeek - Find Freelance Opportunities';
-include 'includes/header.php';
-?>
-
-<!-- HERO SECTION -->
-<section class="hero-section">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Find the Perfect <br>
-                <span class="hero-highlight">Freelance Opportunity</span>
-=======
 // Popular categories with live job counts (top 8)
 $stmt = $pdo->query("
     SELECT c.id, c.name, c.icon, c.color,
@@ -116,7 +91,6 @@ include 'includes/header.php';
             <span class="hero-chip reveal"><span class="dot"></span> Trusted freelance marketplace for students &amp; employers</span>
             <h1 class="hero-title reveal">
                 Find Freelance Opportunities That <span class="grad">Match Your Skills</span>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
             </h1>
             <p class="hero-subtitle reveal">
                 Connect talented students, freelancers, and employers on one platform.
@@ -227,30 +201,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<<<<<<< HEAD
-<!-- HOW IT WORKS -->
-<section class="how-it-works">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2>How It Works</h2>
-            <p>Three simple steps to get started</p>
-        </div>
-        <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-icon"><i class="fas fa-user-plus"></i></div>
-                <h3>Create an Account</h3>
-                <p>Sign up as a student or employer. It's free and takes just a few minutes.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon"><i class="fas fa-search"></i></div>
-                <h3>Find or Post Jobs</h3>
-                <p>Students can browse available jobs. Employers can post new opportunities.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon"><i class="fas fa-handshake"></i></div>
-                <h3>Connect &amp; Work</h3>
-                <p>Apply for jobs, review applications, and start working together.</p>
-=======
 <!-- ============================================================
      TRUSTED COMPANIES
      ============================================================ -->
@@ -309,7 +259,6 @@ include 'includes/header.php';
                         <option value="negotiable">Negotiable</option>
                     </select>
                 </div>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
             </div>
             <div class="search-panel-foot">
                 <label class="search-remote"><input type="checkbox" name="remote" value="1"> <span>Remote only</span></label>
@@ -384,18 +333,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<<<<<<< HEAD
-<!-- FEATURED JOBS -->
-<section class="featured-jobs">
-    <div class="container">
-        <div class="section-header">
-            <div>
-                <h2>Featured Jobs</h2>
-                <p>Latest opportunities from employers</p>
-            </div>
-            <a href="jobs.php" class="view-all">View All Jobs →</a>
-        </div>
-=======
 <!-- ============================================================
      FEATURED JOBS
      ============================================================ -->
@@ -407,7 +344,6 @@ include 'includes/header.php';
             <p>Handpicked roles updated daily across all industries.</p>
         </div>
 
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
         <?php if (empty($featured_jobs)): ?>
             <div class="empty-state reveal">
                 <i class="fas fa-briefcase"></i>
@@ -417,30 +353,6 @@ include 'includes/header.php';
         <?php else: ?>
             <div class="jobs-grid" id="jobsGrid">
                 <?php foreach ($featured_jobs as $job): ?>
-<<<<<<< HEAD
-                    <div class="job-card-featured">
-                        <div class="job-card-header">
-                            <h3><?php echo htmlspecialchars($job['title']); ?></h3>
-                            <span class="status-badge open">Open</span>
-                        </div>
-                        <div class="job-card-body">
-                            <div class="job-employer">
-                                <i class="fas fa-building"></i> <?php echo htmlspecialchars($job['employer_name']); ?>
-                            </div>
-                            <p><?php echo htmlspecialchars(substr($job['description'], 0, 120)); ?>...</p>
-                        </div>
-                        <div class="job-card-footer">
-                            <div class="job-meta">
-                                <span><i class="fas fa-tag"></i> <?php echo htmlspecialchars($job['category_name'] ?? 'General'); ?></span>
-                                <span><i class="fas fa-money-bill"></i> KSh <?php echo number_format($job['budget_min'] ?? 0, 2); ?></span>
-                            </div>
-                            <?php if (isLoggedIn() && getUserRole() === 'student'): ?>
-                                <a href="student/apply.php?id=<?php echo $job['id']; ?>" class="btn btn-primary btn-sm btn-block">Apply Now</a>
-                            <?php elseif (isLoggedIn() && getUserRole() === 'employer'): ?>
-                                <a href="employer/job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-secondary btn-sm btn-block">View Details</a>
-                            <?php else: ?>
-                                <a href="auth/login.php" class="btn btn-secondary btn-sm btn-block">Login to Apply</a>
-=======
                     <article class="job-card reveal">
                         <div class="job-card-top">
                             <div class="job-logo"><i class="fas <?php echo !empty($job['category_name']) ? 'fa-code' : 'fa-code'; ?>"></i></div>
@@ -452,7 +364,6 @@ include 'includes/header.php';
                                 <a href="student/saved_jobs.php" class="bookmark-btn" aria-label="Save job" title="Save job"><i class="fas fa-bookmark"></i></a>
                             <?php else: ?>
                                 <a href="auth/login.php" class="bookmark-btn" aria-label="Save job" title="Login to save"><i class="fas fa-bookmark"></i></a>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
                             <?php endif; ?>
                         </div>
 
@@ -492,14 +403,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<<<<<<< HEAD
-<!-- CTA SECTION -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Join thousands of students and employers already using SkillSeek</p>
-=======
 <!-- ============================================================
      TOP FREELANCERS (Upwork-inspired)
      ============================================================ -->
@@ -617,7 +520,6 @@ include 'includes/header.php';
         <div class="cta-box reveal">
             <h2>Ready to launch your career?</h2>
             <p>Join a growing community of freelancers and employers. Find your next opportunity or project today.</p>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
             <div class="cta-buttons">
                 <?php if (!isLoggedIn()): ?>
                     <a href="auth/register.php" class="btn btn-light btn-lg btn-ripple"><i class="fas fa-user-plus"></i> Join SkillSeek</a>

@@ -1,18 +1,4 @@
 <?php
-<<<<<<< HEAD
-$page_title = 'Terms & Conditions - SkillSeek';
-include 'includes/header.php';
-?>
-
-<div class="container" style="padding: 40px 0; min-height: 60vh;">
-    <h1>Terms &amp; Conditions</h1>
-    <p>Last updated: <?php echo date('F d, Y'); ?></p>
-    <div style="margin-top: 20px;">
-        <p>Terms and conditions coming soon...</p>
-    </div>
-</div>
-
-=======
 // ============================================
 // SkillSeek - Terms & Conditions
 // ============================================
@@ -47,5 +33,4 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
->>>>>>> edea4d189acbfbdcfa9d92d3b8d426a2dfd2ceb1
 <?php include 'includes/footer.php'; ?>

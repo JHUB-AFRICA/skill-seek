@@ -139,7 +139,7 @@ $page_title = 'Register - SkillSeek';
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
+   <link rel="stylesheet" href="/SkillSeek/assets/css/style.css">
 </head>
 <body class="auth-page">
 
