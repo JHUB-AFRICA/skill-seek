@@ -45,16 +45,17 @@ SkillSeek is a web-based platform that connects students with employers for free
 ## 📸 Screenshots
 
 ### Landing Page
+<img width="1339" height="685" alt="Landing page" src="https://github.com/user-attachments/assets/ea62193b-65ee-42fb-9475-b4ae14eb8046" />
 
-![SkillSeek Landing Page](assets/images/screenshots/landing-page.png)
+
 
 ### Student Dashboard
+<img width="1358" height="718" alt="student dashboard" src="https://github.com/user-attachments/assets/d0fd2335-21f1-4cc3-8605-0c97b2d1d619" />
 
-![Student Dashboard](assets/images/screenshots/student-dashboard.png)
 
 ### Employer Dashboard
+<img width="1358" height="675" alt="employer dashboard" src="https://github.com/user-attachments/assets/b0bc91d8-c048-40b8-af47-5934d7ec9dc5" />
 
-![Employer Dashboard](assets/images/screenshots/employer-dashboard.png)
 
 ## 🚀 Setup
 
