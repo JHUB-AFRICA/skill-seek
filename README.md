@@ -46,7 +46,7 @@ SkillSeek is a web-based platform that connects students with employers for free
 
 ### Landing Page
 
-![Landing Page](assets/images/screenshots/landing-page.png)
+![SkillSeek Landing Page](assets/images/screenshots/landing-page.png)
 
 ### Student Dashboard
 
